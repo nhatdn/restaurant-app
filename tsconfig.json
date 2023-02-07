@@ -2,5 +2,14 @@
   "extends": "@tsconfig/react-native/tsconfig.json",
   "compilerOptions": {
     "strict": true
-  }
+  },
+  "include": [
+    "./src/**/*.ts",
+    "src",
+    "index.d.ts"
+  ],
+  "compilerOptions": {
+    "jsx": "react-jsx"
+  },
+  
 }

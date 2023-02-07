@@ -1,22 +1,23 @@
+import React, { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-
-import useCachedResources from './hooks/useCachedResources';
-import useColorScheme from './hooks/useColorScheme';
-import Navigation from './navigation';
-
+import { Provider as PaperProvider } from 'react-native-paper';
+import Introduction from './screens/introduction';
+import Features from './screens/features';
+import Pagination from './components/pagination';
 export default function App() {
-  const isLoadingComplete = useCachedResources();
-  const colorScheme = useColorScheme();
-
-  if (!isLoadingComplete) {
-    return null;
-  } else {
-    return (
-      <SafeAreaProvider>
-        <Navigation colorScheme={colorScheme} />
-        <StatusBar />
-      </SafeAreaProvider>
-    );
-  }
+  const [Component, setComponent] = useState<Boolean>(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setComponent(false);
+    }, 3000)
+  }, [])
+  return (
+    <SafeAreaProvider>
+      <PaperProvider>
+          {Component ? <Introduction/> : <Features/>}
+        <StatusBar/>
+      </PaperProvider>
+    </SafeAreaProvider>
+  );
 }

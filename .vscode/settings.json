@@ -1,0 +1,11 @@
+{
+    "javascript.validate.enable": false,
+    "editor.tabSize": 4,
+    "eslint.enable": true,
+    "eslint.packageManager": "yarn",
+    "eslint.codeActionsOnSave.mode": "all",
+    "eslint.workingDirectories": [
+        { "directory": "../server", "changeProcessCWD": true },
+        { "directory": "../client", "changeProcessCWD": true }
+    ],
+}
